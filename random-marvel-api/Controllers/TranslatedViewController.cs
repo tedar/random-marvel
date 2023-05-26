@@ -15,9 +15,12 @@ namespace random_marvel_api.Controllers
         }
 
         [HttpGet(Name = "bio/random")]
-        public TranslatedViewResponse Get()
-        {       
-            return new TranslatedViewResponse { Bio = "Capitán america estuvo congelado durante décadas" };
+        [ProducesResponseType(typeof(TranslatedViewResponse), 200)]
+        [ProducesResponseType(500)]
+        public IActionResult Get()
+        {
+            return new OkObjectResult(
+                new TranslatedViewResponse { Bio = "Capitán america estuvo congelado durante décadas" });
         }
     }
 }

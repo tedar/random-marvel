@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace random_marvel_api.Views.Response
+﻿namespace random_marvel_api.Views.Response
 {
     public class TranslatedViewResponse
     {
