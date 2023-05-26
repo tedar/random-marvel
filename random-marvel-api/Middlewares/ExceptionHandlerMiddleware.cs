@@ -1,4 +1,4 @@
-﻿namespace random_marvel_api.Middleware
+﻿namespace random_marvel_api.Middlewares
 {
     public class ExceptionHandlerMiddleware
     {
