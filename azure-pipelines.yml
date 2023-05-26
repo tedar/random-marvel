@@ -32,3 +32,10 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Visual Studio Enterprise con MSDN(e039e0af-ce45-431b-92ca-f6c18fd7884a)'
+    appType: 'webApp'
+    WebAppName: 'languagewire'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
