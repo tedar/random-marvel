@@ -8,10 +8,14 @@ namespace random_marvel_api.Controllers
     public class TranslationCharacterController : ControllerBase
     {
         private readonly ILogger<TranslationCharacterController> _logger;
+        private readonly ITranslatedRandomBio _translatedRandomBio;
 
-        public TranslationCharacterController(ILogger<TranslationCharacterController> logger)
+        public TranslationCharacterController(
+            ILogger<TranslationCharacterController> logger, 
+            ITranslatedRandomBio translatedRandomBio)
         {
             _logger = logger;
+            _translatedRandomBio = translatedRandomBio;
         }
 
         [HttpGet(Name = "bio/random")]
@@ -20,7 +24,7 @@ namespace random_marvel_api.Controllers
         public IActionResult Get()
         {
             return new OkObjectResult(
-                new TranslatedViewResponse { Bio = "Capitán america estuvo congelado durante décadas" });
+                new TranslatedViewResponse { Bio = _translatedRandomBio.GetTranslatedRandomBio() });
         }
     }
 }

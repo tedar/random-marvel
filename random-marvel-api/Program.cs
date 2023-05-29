@@ -7,6 +7,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<IBioManager, BioManager>();
+builder.Services.AddTransient<ITranslatedRandomBio, TranslatedRandomBio>();
+builder.Services.AddTransient<ITranslatorManager, TranslatorManager>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
