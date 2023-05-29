@@ -10,7 +10,7 @@ namespace random_bios_manager.Managers
     {
         string ITranslatorManager.Translate(string text)
         {
-            return "El Capitán América pasó décadas congelado 3";
+            return text;
         }
     }
 }

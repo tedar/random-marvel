@@ -21,10 +21,10 @@ namespace random_marvel_api.Controllers
         [HttpGet(Name = "bio/random")]
         [ProducesResponseType(typeof(TranslatedViewResponse), 200)]
         [ProducesResponseType(500)]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             return new OkObjectResult(
-                new TranslatedViewResponse { Bio = _translatedRandomBio.GetTranslatedRandomBio() });
+                new TranslatedViewResponse { Bio = await _translatedRandomBio.GetTranslatedRandomBio() });
         }
     }
 }
