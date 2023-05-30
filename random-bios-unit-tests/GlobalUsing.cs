@@ -1,0 +1,9 @@
+﻿global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.AspNetCore.Mvc;
+global using NUnit.Framework;
+global using Moq;
+global using AutoMapper;
+global using random_bios_manager.Interfaces;
+global using random_marvel_api.Controllers;
+global using random_marvel_api.Views.Response;

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "random-marvel-api", "random-marvel-api\random-marvel-api.csproj", "{48EBC8F6-2728-48A1-B973-FA99FDE405A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "random-bios-manager", "random-bios-manager\random-bios-manager.csproj", "{81C59D37-9927-4C44-80CC-17EEAF8BF6F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "random-bios-manager", "random-bios-manager\random-bios-manager.csproj", "{81C59D37-9927-4C44-80CC-17EEAF8BF6F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "random-bios-unit-tests", "random-bios-unit-tests\random-bios-unit-tests.csproj", "{3A5E8580-6034-4B55-854F-BE4422851E16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{81C59D37-9927-4C44-80CC-17EEAF8BF6F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81C59D37-9927-4C44-80CC-17EEAF8BF6F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81C59D37-9927-4C44-80CC-17EEAF8BF6F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A5E8580-6034-4B55-854F-BE4422851E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5E8580-6034-4B55-854F-BE4422851E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5E8580-6034-4B55-854F-BE4422851E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A5E8580-6034-4B55-854F-BE4422851E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
