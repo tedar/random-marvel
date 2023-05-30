@@ -8,6 +8,6 @@ namespace random_bios_manager.Interfaces
 {
     public interface IBioManager
     {
-        public Task<string?> GetRandomBio();
+        public Task<CharacterBioModel?> GetRandomBio();
     }
 }

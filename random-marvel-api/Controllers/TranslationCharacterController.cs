@@ -21,8 +21,11 @@ namespace random_marvel_api.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> Get()
         {
-            return new OkObjectResult(
-                new TranslatedViewResponse { Bio = await _translatedRandomBio.GetTranslatedRandomBio() });
+            var characterBio = await _translatedRandomBio.GetTranslatedRandomBio();
+
+            var response = new TranslatedViewResponse { Name = characterBio.Name, Bio = characterBio.Bio };
+
+            return new OkObjectResult(response);
         }
     }
 }

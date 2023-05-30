@@ -21,7 +21,8 @@ namespace random_bios_unit_tests.Controllers
         {
             // Arrange
 
-            _mockTranslatedRandomBio!.Setup(s => s.GetTranslatedRandomBio()).Returns(Task.FromResult("This is the translated text"));
+            var characterBio = new CharacterBioModel { Name = "Spiderman", Bio = "Was punctured by a spider" };
+            _mockTranslatedRandomBio!.Setup(s => s.GetTranslatedRandomBio()).Returns(Task.FromResult(characterBio));
 
             //Act
 

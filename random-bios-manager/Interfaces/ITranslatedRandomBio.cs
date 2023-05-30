@@ -8,6 +8,6 @@ namespace random_bios_manager.Interfaces
 {
     public interface ITranslatedRandomBio
     {
-        Task<string> GetTranslatedRandomBio();
+        Task<CharacterBioModel> GetTranslatedRandomBio();
     }
 }

@@ -41,11 +41,11 @@ namespace random_bios_unit_tests.Managers
 
             //Act
 
-            string? s = await _bioManager!.GetRandomBio();
+            var characterBio = await _bioManager!.GetRandomBio();
 
             // Assert
 
-            Assert.AreEqual(s!, "Biography");
+            Assert.AreEqual(characterBio?.Bio, "Biography");
         }
     }
 }

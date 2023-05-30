@@ -16,7 +16,7 @@ namespace random_bios_manager.Managers
             _httpClient = httpClient;
         }
 
-        public async Task<string?> GetRandomBio()
+        public async Task<CharacterBioModel?> GetRandomBio()
         {
             var houseOfMComicId = "251";
             string endpoint = $"events/{houseOfMComicId}/characters";
@@ -47,7 +47,12 @@ namespace random_bios_manager.Managers
 
             int randomIndex = random.Next(0, count);
 
-            return charactersWithBio?[randomIndex].Description;
+            var response = 
+                new CharacterBioModel { 
+                    Name = charactersWithBio?[randomIndex].Name, 
+                    Bio = charactersWithBio?[randomIndex].Description  };
+
+            return response;
         }
 
         private static string GetMd5Hash(string input)

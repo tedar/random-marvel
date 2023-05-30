@@ -17,9 +17,17 @@ namespace random_bios_manager.Managers
             _translatorManager = translatorManager;
         }
 
-        async Task<string> ITranslatedRandomBio.GetTranslatedRandomBio()
+        async Task<CharacterBioModel> ITranslatedRandomBio.GetTranslatedRandomBio()
         {
-            return await _translatorManager.Translate(await _bioManager.GetRandomBio() ?? "");
+            var characterBio = await _bioManager.GetRandomBio();
+            var translatedBio = "";
+
+            if (!String.IsNullOrEmpty(characterBio?.Bio))
+                translatedBio = await _translatorManager.Translate(characterBio?.Bio ?? "");
+
+            var translatedCharacterBio = new CharacterBioModel { Name = characterBio?.Name, Bio = translatedBio };
+
+            return translatedCharacterBio;
         }
     }
 }
