@@ -2,7 +2,7 @@
 namespace random_marvel_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("translate/marvel-characters/bios/random")]
     public class TranslationCharacterController : ControllerBase
     {
         private readonly ILogger<TranslationCharacterController> _logger;
