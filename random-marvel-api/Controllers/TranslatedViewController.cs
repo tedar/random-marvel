@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using random_marvel_api.Views.Response;
 
 namespace random_marvel_api.Controllers
 {

@@ -19,7 +19,7 @@ namespace random_bios_manager.Managers
 
         async Task<string> ITranslatedRandomBio.GetTranslatedRandomBio()
         {
-            return _translatorManager.Translate(await _bioManager.GetRandomBio() ?? "");
+            return await _translatorManager.Translate(await _bioManager.GetRandomBio() ?? "");
         }
     }
 }

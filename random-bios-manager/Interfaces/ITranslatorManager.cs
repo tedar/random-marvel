@@ -8,6 +8,6 @@ namespace random_bios_manager.Interfaces
 {
     public interface ITranslatorManager
     {
-        public string Translate(string text);
+        public Task<string> Translate(string text);
     }
 }
