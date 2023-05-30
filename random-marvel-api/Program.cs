@@ -11,6 +11,7 @@ builder.Services.AddTransient<IBioManager, BioManager>();
 builder.Services.AddTransient<ITranslatedRandomBio, TranslatedRandomBio>();
 builder.Services.AddTransient<ITranslatorManager, TranslatorManager>();
 builder.Services.AddHttpClient<BioManager>();
+builder.Services.AddAutoMapper(typeof(Mappings));
 
 var app = builder.Build();
 
