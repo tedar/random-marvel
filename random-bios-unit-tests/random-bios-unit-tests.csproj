@@ -5,6 +5,7 @@
     <RootNamespace>random_bios_unit_tests</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateRuntimeConfigDevFile>true</GenerateRuntimeConfigDevFile>
   </PropertyGroup>
 
   <ItemGroup>
