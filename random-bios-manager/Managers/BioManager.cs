@@ -8,13 +8,15 @@ namespace random_bios_manager.Managers
     public class BioManager : IBioManager
     {
         private readonly IConfiguration _configuration;
+        private readonly HttpClient _httpClient;
 
-        public BioManager(IConfiguration configuration)
+        public BioManager(HttpClient httpClient, IConfiguration configuration)
         {
             _configuration = configuration;
+            _httpClient = httpClient;
         }
 
-        async Task<string?> IBioManager.GetRandomBio()
+        public async Task<string?> GetRandomBio()
         {
             var houseOfMComicId = "251";
             string endpoint = $"events/{houseOfMComicId}/characters";
@@ -50,8 +52,8 @@ namespace random_bios_manager.Managers
 
         private static string GetMd5Hash(string input)
         {
-            using MD5 md5Hash = MD5.Create();
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            using MD5? md5Hash = MD5.Create();
+            byte[]? data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
             var builder = new StringBuilder();
 
             for (int i = 0; i < data.Length; i++)
@@ -64,18 +66,15 @@ namespace random_bios_manager.Managers
 
         private async Task<T?> GETAsync<T>(string endpointURL)
         {
-            using HttpClient client = new();
             var baseUrl = _configuration["MarvelAPI:BaseUrl"] ?? "";
             var privateKey = _configuration["MarvelAPI:PrivateKey"] ?? "";
-            var publicKey = _configuration["MarvelAPI:PublicKey"] ?? "";
+            var publicKey = _configuration["MarvelAPI:PublicKey"] ?? "";            
 
-            client.DefaultRequestHeaders.Add("User-Agent", _configuration["HttpClient:UserAgent"]);
+            var ts = DateTime.Now.Ticks.ToString();
+            var hash = GetMd5Hash(ts + privateKey + publicKey);
+            var url = $"{baseUrl}{endpointURL}?apikey={publicKey}&ts={ts}&hash={hash}";
 
-            string ts = DateTime.Now.Ticks.ToString();
-            string hash = GetMd5Hash(ts + privateKey + publicKey);
-            string url = $"{baseUrl}{endpointURL}?apikey={publicKey}&ts={ts}&hash={hash}";
-
-            var json = await client.GetStringAsync(url);
+            var json = await _httpClient.GetStringAsync(url);
 
             return JsonConvert.DeserializeObject<T>(json);
         }

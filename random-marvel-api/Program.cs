@@ -10,6 +10,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IBioManager, BioManager>();
 builder.Services.AddTransient<ITranslatedRandomBio, TranslatedRandomBio>();
 builder.Services.AddTransient<ITranslatorManager, TranslatorManager>();
+builder.Services.AddHttpClient<BioManager>();
 
 var app = builder.Build();
 
