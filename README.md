@@ -3,7 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Setup](#setup)
+* [Run](#run)
 
 ## General info
 Serves translated marvel biography to spanish of ramdon Marvel characters.
