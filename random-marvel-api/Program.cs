@@ -3,10 +3,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+builder.Services.AddSwaggerGen(options => { 
+    options.EnableAnnotations();
+});
 builder.Services.AddTransient<IBioManager, BioManager>();
 builder.Services.AddTransient<ITranslatedRandomBio, TranslatedRandomBio>();
 builder.Services.AddTransient<ITranslatorManager, TranslatorManager>();

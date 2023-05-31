@@ -1,4 +1,6 @@
 
+using Swashbuckle.AspNetCore.Annotations;
+
 namespace random_marvel_api.Controllers
 {
     [ApiController]
@@ -17,8 +19,11 @@ namespace random_marvel_api.Controllers
         }
 
         [HttpGet(Name = "bio/random")]
-        [ProducesResponseType(typeof(TranslatedViewResponse), 200)]
-        [ProducesResponseType(500)]
+        [SwaggerOperation(
+            Summary = "Get random marvel character bio translated to spanish", 
+            Description = "You will only get characters appearing in the House of M series that include any biography in the Marvel API.")]
+        [SwaggerResponse(200, "OK", typeof(TranslatedViewResponse))]
+        [SwaggerResponse(500, "Internal error", typeof(void))]
         public async Task<IActionResult> Get()
         {
             var characterBio = await _translatedRandomBio.GetTranslatedRandomBio();
