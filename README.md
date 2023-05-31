@@ -1,5 +1,4 @@
 # random-marvel
-servers translated marvel background
 
 ## Table of contents
 * [General info](#general-info)
